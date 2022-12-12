@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import "react-pro-sidebar/dist/css/styles.css";
-import { Link } from "react-router-dom";
-import { tokens } from "../../theme";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Link } from "react-router-dom";
+import "react-pro-sidebar/dist/css/styles.css";
+import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
+import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
@@ -23,7 +23,9 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   return (
     <MenuItem
       active={selected === title}
-      style={{ color: colors.grey[100] }}
+      style={{
+        color: colors.grey[100],
+      }}
       onClick={() => setSelected(title)}
       icon={icon}
     >
@@ -55,13 +57,13 @@ const Sidebar = () => {
           color: "#868dfb !important",
         },
         "& .pro-menu-item.active": {
-          color: "6870fa !important",
+          color: "#6870fa !important",
         },
       }}
     >
       <ProSidebar collapsed={isCollapsed}>
         <Menu iconShape="square">
-          {/* Show hamburger menu when collasped */}
+          {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
@@ -70,7 +72,6 @@ const Sidebar = () => {
               color: colors.grey[100],
             }}
           >
-            {/* When sidebar is not collasped */}
             {!isCollapsed && (
               <Box
                 display="flex"
@@ -78,7 +79,7 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h4" color={colors.grey[100]}>
+                <Typography variant="h3" color={colors.grey[100]}>
                   SMART
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
@@ -88,25 +89,23 @@ const Sidebar = () => {
             )}
           </MenuItem>
 
-          {/* User */}
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
-                  src={`../../assets/user.png`}
                   alt="profile-user"
                   width="100px"
                   height="100px"
+                  src={`../../assets/user.png`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
-
               <Box textAlign="center">
                 <Typography
                   variant="h2"
                   color={colors.grey[100]}
                   fontWeight="bold"
-                  sx={{ mt: "10px" }}
+                  sx={{ m: "10px 0 0 0" }}
                 >
                   Mayumi F.
                 </Typography>
@@ -117,8 +116,7 @@ const Sidebar = () => {
             </Box>
           )}
 
-          {/* Menu items */}
-          <Box paddingLeft={isCollapsed ? undefined : "0%"}>
+          <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
               to="/"
@@ -142,7 +140,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Contacts Information"
               to="/contacts"
@@ -150,7 +147,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Invoices Balances"
               to="/invoices"
@@ -168,13 +164,12 @@ const Sidebar = () => {
             </Typography>
 
             <Item
-              title="Profile form"
+              title="Profile Form"
               to="/form"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Calendar"
               to="/calendar"
@@ -182,11 +177,10 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="FAQ Page"
               to="/faq"
-              icon={<HelpOutlinedIcon />}
+              icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -206,15 +200,13 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Pie Chart"
               to="/pie"
-              icon={<PieChartOutlinedIcon />}
+              icon={<PieChartOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Line Chart"
               to="/line"
@@ -222,7 +214,6 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-
             <Item
               title="Geography Chart"
               to="/geography"
