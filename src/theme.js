@@ -1,6 +1,5 @@
 import { useState, useMemo, createContext } from "react";
 import { createTheme } from "@mui/material/styles";
-import { colors } from "@mui/material";
 
 // Tailwind Shades: Cmd+k Cmd+g to generate color palette
 
