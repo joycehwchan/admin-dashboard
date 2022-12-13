@@ -10,6 +10,11 @@ body,
   font-family: "Source Sans Pro", sans-serif;
 }
 
+.content {
+  max-height: 100%;
+  overflow: auto;
+}
+
 .app {
   display: flex;
   position: relative;
